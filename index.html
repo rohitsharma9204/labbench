@@ -1206,25 +1206,6 @@ function renderTeamMembers(){
 
     app.innerHTML =
       '<div class="client-home">' +
-        '<section class="client-hero">' +
-          '<span class="client-kicker">Dummy Reports · Test Catalog</span>' +
-          '<h1>Find your test report<br>quickly and easily.</h1>' +
-          '<p>Search a Sample / Report ID or patient name to open an attached dummy report. You can also browse the complete test catalog below.</p>' +
-          '<div class="client-quick">' +
-            '<div class="client-searchbox">' +
-              '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' +
-              '<input id="cQuery" type="text" placeholder="Enter Sample / Report ID or patient name…">' +
-            '</div>' +
-            '<button class="client-search-btn" id="cSearchBtn" type="button">Find Report</button>' +
-          '</div>' +
-          '<div class="client-search-hint" id="cHint">Only reports actually attached by an admin are shown.</div>' +
-        '</section>' +
-
-        '<section class="client-section" id="clientResultsSection" style="display:none;">' +
-          '<div class="client-section-head"><div><h2>Report results</h2><p>Matching attached dummy reports</p></div></div>' +
-          '<div id="cResults"></div>' +
-        '</section>' +
-
         '<section class="client-section">' +
           '<div class="client-section-head">' +
             '<div><h2>All Test Reports</h2><p>Uploaded dummy reports appear first, followed by pending reports.</p></div>' +
@@ -1318,13 +1299,6 @@ function renderTeamMembers(){
       if(more)more.addEventListener('click',function(){catShown+=40;renderCatTable();});
     }
 
-    function runSearch(){
-      clientQuery = document.getElementById('cQuery').value.trim();
-      renderClientResults();
-    }
-
-    document.getElementById('cSearchBtn').addEventListener('click',runSearch);
-    document.getElementById('cQuery').addEventListener('keydown',function(e){if(e.key==='Enter')runSearch();});
     document.getElementById('cCatSearch').addEventListener('input', debounce(function(e){
       catSearch = e.target.value.trim().toLowerCase(); catShown = 40; renderCatTable();
     }, 120));
