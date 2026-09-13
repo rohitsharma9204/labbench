@@ -913,7 +913,7 @@ td.name strong{font-weight:600}
   function renderBannerSlideshow(){
     stopBannerTimer();var old=document.getElementById('reportSlideshow');if(old)old.remove();if(!bannerSlides.length)return;
     var w=document.createElement('div');w.id='reportSlideshow';w.className='report-slideshow';
-    w.innerHTML=bannerSlides.map(function(s,i){return '<div class="slide '+(i===0?'active':'')+'"><img src="'+escapeHtml(s.url)+'" alt="Lab image '+(i+1)+'"><div class="slide-overlay"><div class="slide-title">Accurate Results, Better Decisions</div><div class="slide-sub">Reliable dummy lab reports for testing and demonstration.</div></div></div>';}).join('')+
+    w.innerHTML=bannerSlides.map(function(s,i){return '<div class="slide '+(i===0?'active':'')+'"><img src="'+escapeHtml(s.url)+'" alt="Lab image '+(i+1)+'"></div>';}).join('')+
       (bannerSlides.length>1?'<button type="button" class="slide-nav slide-prev">‹</button><button type="button" class="slide-nav slide-next">›</button><div class="slide-dots">'+bannerSlides.map(function(_,i){return '<span class="slide-dot '+(i===0?'active':'')+'" data-slide="'+i+'"></span>';}).join('')+'</div>':'');
     var appEl=document.getElementById('app');if(appEl)appEl.insertBefore(w,appEl.firstChild);
     if(bannerSlides.length>1){
